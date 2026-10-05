@@ -1,0 +1,23 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # to solve this, my plan is to compare the character frequencies of both strings. I'll use a hashmap to track these counts. The time complexity is On since we iterate through the strings, and the space complexity is O1 because map will hold a max of 26 lowercase English letters
+        # 1edge case: if the lengths not matched, we can return early
+        if len(s) != len(t):
+            return False
+        
+        # 2.intializing a hashmap to track frequency 
+        countS = {}
+        countT = {}
+
+        # 3.for loop: now iterating through the array 
+        for i in range(len(s)):
+            # 4increase the character count for s[i] in the first map
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            # increase the character count for t[i] in the second map
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
+
+        
+            
+            
+        
